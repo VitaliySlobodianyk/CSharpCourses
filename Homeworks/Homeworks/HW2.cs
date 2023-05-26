@@ -9,7 +9,7 @@ namespace Homeworks
 {
     public static class HW2
     {
-        public static void SwapTwoNumbers<T>(ref T num1, ref T num2)
+        private static void SwapTwoNumbers<T>(ref T num1, ref T num2)
         {
             (num1, num2) = (num2, num1);
         }
@@ -25,10 +25,10 @@ namespace Homeworks
         /// </summary>
         public static void Task1()
         {
-            double[] numbersFromCOnsole = ConsoleUtils.GetTwoNumbersFromConsole();
+            double[] numbersFromConsole = ConsoleUtils.GetTwoNumbersFromConsole();
 
-            Console.WriteLine($"{numbersFromCOnsole[0]} + {numbersFromCOnsole[1]} =  {numbersFromCOnsole[0] + numbersFromCOnsole[1]}");
-            Console.WriteLine($"{numbersFromCOnsole[0]} / {numbersFromCOnsole[1]} =  {numbersFromCOnsole[0] / numbersFromCOnsole[1]}");
+            Console.WriteLine($"{numbersFromConsole[0]} + {numbersFromConsole[1]} =  {numbersFromConsole[0] + numbersFromConsole[1]}");
+            Console.WriteLine($"{numbersFromConsole[0]} / {numbersFromConsole[1]} =  {numbersFromConsole[0] / numbersFromConsole[1]}");
 
 
             Console.WriteLine("-1 + 4 * 6 ={0}", (-1d + 4d * 6d));
@@ -43,12 +43,12 @@ namespace Homeworks
         /// </summary>
         public static void Task2()
         {
-            double[] numbersFromCOnsole = ConsoleUtils.GetTwoNumbersFromConsole();
+            double[] numbersFromConsole = ConsoleUtils.GetTwoNumbersFromConsole();
 
-            SwapTwoNumbers(ref numbersFromCOnsole[0], ref numbersFromCOnsole[1]);
+            SwapTwoNumbers(ref numbersFromConsole[0], ref numbersFromConsole[1]);
 
-            Console.WriteLine($"{numbersFromCOnsole[0]}");
-            Console.WriteLine($"{numbersFromCOnsole[1]}");
+            Console.WriteLine($"{numbersFromConsole[0]}");
+            Console.WriteLine($"{numbersFromConsole[1]}");
         }
 
         /// <summary>
@@ -56,21 +56,27 @@ namespace Homeworks
         /// </summary>
         public static void Task3()
         {
-            double[] numbersFromCOnsole = ConsoleUtils.CollectArraytOfNumbersFromConsole(3);
+            double[] numbersFromConsole = ConsoleUtils.CollectArraytOfNumbersFromConsole(3);
 
-            double result = numbersFromCOnsole[0];
+            double result = numbersFromConsole[0];
             Console.WriteLine("Result of multiplication:");
 
-            Console.Write(numbersFromCOnsole[0]);
+            Console.Write(numbersFromConsole[0]);
 
-            for (int i = 1; i < numbersFromCOnsole.Length; i++)
+            for (int i = 1; i < numbersFromConsole.Length; i++)
             {
-                result *= numbersFromCOnsole[i];
-                Console.Write($" х {numbersFromCOnsole[i]}");
+                result *= numbersFromConsole[i];
+                Console.Write($" х {numbersFromConsole[i]}");
             }
             Console.Write($" = {result}");
 
             Console.WriteLine();
+        }
+
+        public static void Execute() {
+            HW2.Task1();
+            HW2.Task2();
+            HW2.Task3();
         }
     }
 }

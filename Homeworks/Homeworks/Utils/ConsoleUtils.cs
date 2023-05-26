@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Homeworks.Utils
 {
-   public static  class ConsoleUtils
+    public static class ConsoleUtils
     {
 
-        public static double[] GetTwoNumbersFromConsole() {
+        public static double[] GetTwoNumbersFromConsole()
+        {
             double num1 = 0, num2 = 0;
 
             bool flag;
@@ -32,7 +33,7 @@ namespace Homeworks.Utils
 
             } while (!flag);
 
-            return  new double[] { num1, num2 };
+            return new double[] { num1, num2 };
         }
 
         public static double[] CollectArraytOfNumbersFromConsole(int quantity)
@@ -44,7 +45,7 @@ namespace Homeworks.Utils
                 bool flag;
                 do
                 {
-                    Console.WriteLine($"Input number{i+1}: ");
+                    Console.WriteLine($"Input number{i + 1}: ");
                     flag = Double.TryParse(Console.ReadLine(), out numbers[i]);
 
                     if (!flag)
@@ -57,6 +58,27 @@ namespace Homeworks.Utils
             }
 
             return numbers;
+        }
+
+        public static int GetIntegerNumberFromConsole(string message)
+        {
+            int number;
+            bool flag;
+
+            Console.WriteLine(message);
+
+            do
+            {
+                flag = Int32.TryParse(Console.ReadLine(), out number);
+
+                if (!flag)
+                {
+                    Console.WriteLine("Wrong Data Entered\n Re-enter number:");
+                }
+
+            } while (!flag);
+
+            return number;
         }
     }
 }
