@@ -64,6 +64,7 @@ namespace Homeworks
             return result;
         }
 
+
         /// <summary>
         /// Write a C# method to compute the sum of all the elements of an array of integers
         /// </summary>
