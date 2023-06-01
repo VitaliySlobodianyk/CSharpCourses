@@ -15,7 +15,7 @@ namespace Homeworks
 
             if (number < minimalDivider) { return false; }
 
-            for (int i = minimalDivider; i < number; i++)
+            for (int i = minimalDivider; i <= Math.Sqrt(number); i++)
             {
                 if (number % i == 0)
                 {
