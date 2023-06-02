@@ -9,7 +9,7 @@ namespace Homeworks
 {
     public static class HW2
     {
-        private static void SwapTwoNumbers<T>(ref T num1, ref T num2)
+        public static void SwapTwoItems<T>(ref T num1, ref T num2)
         {
             (num1, num2) = (num2, num1);
         }
@@ -45,7 +45,7 @@ namespace Homeworks
         {
             double[] numbersFromConsole = ConsoleUtils.GetTwoNumbersFromConsole();
 
-            SwapTwoNumbers(ref numbersFromConsole[0], ref numbersFromConsole[1]);
+            SwapTwoItems(ref numbersFromConsole[0], ref numbersFromConsole[1]);
 
             Console.WriteLine($"{numbersFromConsole[0]}");
             Console.WriteLine($"{numbersFromConsole[1]}");
