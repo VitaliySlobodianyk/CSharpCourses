@@ -80,5 +80,15 @@ namespace Homeworks.Utils
 
             return number;
         }
+
+        public static void PrintArray<T>(T[] arr) {
+
+            foreach (T item in arr)
+            {
+                Console.Write($"{item} ");
+            }
+            
+            Console.WriteLine();
+        } 
     }
 }
