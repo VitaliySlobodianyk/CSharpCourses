@@ -9,7 +9,6 @@ namespace Homeworks
     internal class AdditionalHW1_4
     {
 
-
         /// <summary>
         /// Write a program in C# Sharp to display a number in reverse order.
         /// </summary>
@@ -94,6 +93,7 @@ namespace Homeworks
                 }
             }
         }
+
         /// <summary>
         /// Write a C# Sharp program to find the N largest element in an array.
         /// </summary>
@@ -115,7 +115,6 @@ namespace Homeworks
 
             return newArray[newArray.Length - index];
         }
-
 
         /// <summary>
         /// Write a C# Sharp program to check whether a triangle can be formed by the given angles value
@@ -145,7 +144,6 @@ namespace Homeworks
             int[] arr4 = { 5, 75};
             Console.WriteLine(NLargestItemInArray(arr4, 2));
             
-
             Console.WriteLine(CanFormTriangle(90,45,45));
             Console.WriteLine(CanFormTriangle(30, 65, 85));
             Console.WriteLine(CanFormTriangle(40, 55, 65));
