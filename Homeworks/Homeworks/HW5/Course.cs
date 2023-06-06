@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Homeworks.HW_5.Persons;
 
 namespace Homeworks.HW_5
 {
     public class Course
     {
         public string Name { get; private set; }
-        public string TeacherName { get; private set; }
+        public Teacher Teacher { get; private set; }
         public int AmountOfStudents { get; set; } = 12;
 
         private List<Student> _students { get; set; }
@@ -25,9 +26,10 @@ namespace Homeworks.HW_5
             AmountOfStudents = amountOfStudents;
         }
 
-        public Course(string name, int amountOfStudents, string teacherName) : this(name, amountOfStudents)
+        public Course(string name, int amountOfStudents, Teacher teacher) : this(name, amountOfStudents)
         {
-            TeacherName = teacherName;
+           Teacher = teacher;
+           teacher.AddCourse(this);
         }
 
         public void AddStudent(Student student)
@@ -53,7 +55,7 @@ namespace Homeworks.HW_5
         {
             var resultString = $"""
             Course Name: {Name}
-            Teacher Name: {TeacherName}
+            Teacher: {Teacher?.Name} {Teacher?.Surname}
             Maximal amount of students: {AmountOfStudents}
             Current quantity of students {_students.Count}
             """;
@@ -62,7 +64,7 @@ namespace Homeworks.HW_5
                 resultString += "\nStudents:";
                 foreach (var student in _students)
                 {
-                    resultString += $"\n{student.FirstName} {student.LastName}";
+                    resultString += $"\n{student.Name} {student?.Surname}";
                 }
             }
 
