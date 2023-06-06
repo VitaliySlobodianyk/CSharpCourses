@@ -33,10 +33,9 @@ namespace Homeworks.Additional_HW5.Shapes
         {
             return $"""
                 --------------------------
-                Circle with location at ({c.X};{c.Y})
+                Circle:
                 Radius: {Radius}
-                Area: {Area()}
-                Perimeter {Perimeter()}
+                {base.ToString()}
                 --------------------------
                 """;
         }

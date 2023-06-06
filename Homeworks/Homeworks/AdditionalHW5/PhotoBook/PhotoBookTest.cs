@@ -18,7 +18,7 @@ namespace Homeworks.Additional_HW5.PhotoBook
             Console.WriteLine(photoBoook.NumberOfPages);
 
             var bigPhotoBoook = new BigPhotoBook();
-            Console.WriteLine(bigPhotoBoook);
+            Console.WriteLine(bigPhotoBoook.NumberOfPages);
         }
     }
 }

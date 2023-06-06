@@ -37,10 +37,9 @@ namespace Homeworks.Additional_HW5.Shapes
         {
             return $"""
                 --------------------------
-                Rectangle with location at ({c.X};{c.Y})
+                Rectangle:
                 Sides: {Side1} {Side2}
-                Area: {Area()}
-                Perimeter {Perimeter()}
+                {base.ToString()}
                 --------------------------
                 """;
         }

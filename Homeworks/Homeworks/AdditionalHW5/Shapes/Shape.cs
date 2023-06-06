@@ -11,6 +11,12 @@ namespace Homeworks.Additional_HW5.Shapes
         protected Location c { get; set; }
         public abstract double Area();
         public abstract double Perimeter();
-        public override abstract string ToString(); 
+        public new virtual string ToString() {
+            return $"""
+                Location: ({c.X};{c.Y})
+                Area: {Area()}
+                Perimeter: {Perimeter()}
+                """;
+        } 
     }
 }
