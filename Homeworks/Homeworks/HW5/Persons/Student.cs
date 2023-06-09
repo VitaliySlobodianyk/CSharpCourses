@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Homeworks.HW_5;
+using Homeworks.HW_5.Interfaces;
+
 
 namespace Homeworks.HW_5.Persons
 {
-    public class Student : Person
+    public class Student : Person, ICollectable<Course>, IDescribable
     {
-        private List<Course> _courses { get; set; }
+        private List<Course> _courses;
+        public List<Course> List { get { return _courses; } set { } }
 
         public Student(string firstName, string lastName) : this(firstName, lastName, 0, "UNKNOWN")
         {
@@ -24,27 +27,16 @@ namespace Homeworks.HW_5.Persons
             _courses = new List<Course>();
         }
 
-        public void AddCourse(Course course)
-        {
-            if (!_courses.Contains(course))
-                _courses.Add(course);
-        }
-        public void DeleteCourse(Course course)
-        {
-            if (_courses.Contains(course))
-                _courses.Remove(course);
-        }
-
         public override string DescribeYourself()
         {
             var resultString = $"""
                 Student:
                 {base.DescribeYourself()}
                 """;
-            if (_courses.Count > 0)
+            if (List.Count > 0)
             {
                 resultString += "\nCourses Studied:";
-                foreach (var course in _courses)
+                foreach (var course in List)
                 {
                     resultString += $"\n {course.Name}";
                 }

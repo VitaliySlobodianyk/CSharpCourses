@@ -4,17 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Homeworks.HW_5.Interfaces;
 using Homeworks.HW_5.Persons;
+
 
 namespace Homeworks.HW_5
 {
-    public class Course
+    public class Course : ICollectable<Student>, IDescribable
     {
         public string Name { get; private set; }
         public Teacher Teacher { get; private set; }
         public int AmountOfStudents { get; set; } = 12;
 
-        private List<Student> _students { get; set; }
+        private List<Student> _students;
+        public List<Student> List
+        {
+            get { return _students; }
+            set { }
+        }
 
         public Course(string name)
         {
@@ -26,32 +33,25 @@ namespace Homeworks.HW_5
             AmountOfStudents = amountOfStudents;
         }
 
+        public void Add(Student student)
+        {
+            if (_students.Count < AmountOfStudents && !_students.Contains(student))
+            {
+                _students.Add(student);
+            }
+            else if (_students.Count >= AmountOfStudents)
+            {
+                throw new Exception("Group is full");
+            }
+        }
+
         public Course(string name, int amountOfStudents, Teacher teacher) : this(name, amountOfStudents)
         {
-           Teacher = teacher;
-           teacher.AddCourse(this);
+            Teacher = teacher;
+            teacher.AddCourse(this);
         }
 
-        public void AddStudent(Student student)
-        {
-            if (_students.Count < AmountOfStudents)
-            {
-                if (!_students.Contains(student))
-                    _students.Add(student);                
-            }
-            else
-            {
-                throw new Exception("Maximal amount of students in group has been reached");
-            }
-        }
-
-        public void RemoveStudent(Student student)
-        {
-            if (_students.Contains(student))
-                _students.Remove(student);
-        }
-
-        override public string ToString()
+        public string DescribeYourself()
         {
             var resultString = $"""
             Course Name: {Name}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Homeworks.HW_5.Persons;
+using Homeworks.HW_5.Interfaces;
 
 namespace Homeworks.HW_5
 {
@@ -22,25 +23,25 @@ namespace Homeworks.HW_5
             var biology = new Course("Biology",20);
             var it = new Course("Information Technologies", 15,teacherAndriiStepanovych);
 
-            teacherAndriiStepanovych.Print();
+            ((IDescribable)teacherAndriiStepanovych).Print();
             
             StudyManager.AddStudentToCourse(vitalii, math);
             StudyManager.AddStudentToCourse(vitalii, it);
             StudyManager.AddStudentToCourse(mariia, it);
             StudyManager.AddStudentToCourse(kateryna, biology);
             
-            math.Print();
-            it.Print();
+            ((IDescribable)math).Print();
+            ((IDescribable)it).Print();
 
-            vitalii.Print();
+            ((IDescribable)vitalii).Print();
 
-            kateryna.Print();
+            ((IDescribable)kateryna).Print();
             StudyManager.RemoveStudentFromCourse(kateryna,it);
             StudyManager.RemoveStudentFromCourse(kateryna, biology);
-            kateryna.Print();
+            ((IDescribable)kateryna).Print();
 
             StudyManager.AddStudentToCourse(vitalii, math);
-            vitalii.Print();
+            ((IDescribable)vitalii).Print();
         }
     }
 }

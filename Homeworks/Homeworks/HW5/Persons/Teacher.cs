@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Homeworks.HW_5.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Homeworks.HW_5.Persons
 {
-    public class Teacher : Person
+    public class Teacher : Person, ICollectable<Course>, IDescribable
     {
         private List<Course> _courses { get; set; }
+        public List<Course> List { get { return _courses; } set { } }
 
         public Teacher(string firstName, string lastName) : this(firstName, lastName, 0, "UNKNOWN") { }
 
