@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Homeworks.HW_5.Persons
 {
-    public class Teacher : Person, ICollectable<Course>, IDescribable
+    public class Teacher : Person, ICollectable<Course>
     {
         private List<Course> _courses { get; set; }
         public List<Course> List { get { return _courses; } set { } }

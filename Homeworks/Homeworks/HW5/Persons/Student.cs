@@ -9,7 +9,7 @@ using Homeworks.HW_5.Interfaces;
 
 namespace Homeworks.HW_5.Persons
 {
-    public class Student : Person, ICollectable<Course>, IDescribable
+    public class Student : Person, ICollectable<Course>
     {
         private List<Course> _courses;
         public List<Course> List { get { return _courses; } set { } }

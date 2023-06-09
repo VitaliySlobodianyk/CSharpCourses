@@ -33,6 +33,12 @@ namespace Homeworks.HW_5
             AmountOfStudents = amountOfStudents;
         }
 
+        public Course(string name, int amountOfStudents, Teacher teacher) : this(name, amountOfStudents)
+        {
+            Teacher = teacher;
+            teacher.AddCourse(this);
+        }
+
         public void Add(Student student)
         {
             if (_students.Count < AmountOfStudents && !_students.Contains(student))
@@ -43,12 +49,6 @@ namespace Homeworks.HW_5
             {
                 throw new Exception("Group is full");
             }
-        }
-
-        public Course(string name, int amountOfStudents, Teacher teacher) : this(name, amountOfStudents)
-        {
-            Teacher = teacher;
-            teacher.AddCourse(this);
         }
 
         public string DescribeYourself()

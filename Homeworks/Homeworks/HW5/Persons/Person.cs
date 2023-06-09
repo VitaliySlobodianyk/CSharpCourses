@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Homeworks.HW_5.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Xml.Linq;
 
 namespace Homeworks.HW_5.Persons
 {
-    public abstract class Person
+    public abstract class Person : IDescribable
     {
         public string Name { get; private set; }
         public string Surname { get; private set; }
