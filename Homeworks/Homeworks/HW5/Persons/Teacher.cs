@@ -30,12 +30,13 @@ namespace Homeworks.HW_5.Persons
         public override string DescribeYourself()
         {
             var resultString = $"""
+                
                 Teacher:
                 {base.DescribeYourself()}
                 """;
             if (_courses.Count > 0)
             {
-                resultString += "\nCourses Studied:";
+                resultString += "\nCourses Taught:";
                 foreach (var course in _courses)
                 {
                     resultString += $"\n {course.Name}";

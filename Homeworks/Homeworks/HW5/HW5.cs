@@ -10,7 +10,8 @@ namespace Homeworks.HW_5
 {
     public static class HW5
     {
-        public static void Execute() {
+        public static void Execute()
+        {
 
             var teacherAlisaPetrivna = new Teacher("Alisa", "Petrivna");
             var teacherAndriiStepanovych = new Teacher("Andrii", "Stepanovych", 32, "Lviv");
@@ -19,29 +20,35 @@ namespace Homeworks.HW_5
             var mariia = new Student(firstName: "Mariia", lastName: "Petrova");
             var kateryna = new Student(firstName: "Kateryna", lastName: "Karterynivna", 28, "Kyiv");
 
-            var math = new Course("Math");
-            var biology = new Course("Biology",20);
-            var it = new Course("Information Technologies", 15,teacherAndriiStepanovych);
+            var math = new Course("Math",5,teacherAlisaPetrivna);
+            var biology = new Course("Biology", 20, teacherAlisaPetrivna);
+            var it = new Course("Information Technologies", 15, teacherAndriiStepanovych);
 
-            ((IDescribable)teacherAndriiStepanovych).Print();
-            
-            StudyManager.AddStudentToCourse(vitalii, math);
-            StudyManager.AddStudentToCourse(vitalii, it);
-            StudyManager.AddStudentToCourse(mariia, it);
-            StudyManager.AddStudentToCourse(kateryna, biology);
-            
-            ((IDescribable)math).Print();
-            ((IDescribable)it).Print();
+            var studyManager = StudyManager.GetInstance();
 
-            ((IDescribable)vitalii).Print();
+            var studentsStudyManagerControlller = (ICollectable<Student>)studyManager;
+            var teachersStudyManagerControlller = (ICollectable<Teacher>)studyManager;
+            var coursesStudyManagerControlller = (ICollectable<Course>)studyManager;
 
-            ((IDescribable)kateryna).Print();
-            StudyManager.RemoveStudentFromCourse(kateryna,it);
-            StudyManager.RemoveStudentFromCourse(kateryna, biology);
-            ((IDescribable)kateryna).Print();
+            studentsStudyManagerControlller.Add(vitalii);
+            studentsStudyManagerControlller.Add(mariia);
+            studentsStudyManagerControlller.Add(kateryna);
 
-            StudyManager.AddStudentToCourse(vitalii, math);
-            ((IDescribable)vitalii).Print();
+            teachersStudyManagerControlller.Add(teacherAlisaPetrivna);
+            teachersStudyManagerControlller.Add(teacherAndriiStepanovych);
+
+            coursesStudyManagerControlller.Add(math);
+            coursesStudyManagerControlller.Add(biology);
+            coursesStudyManagerControlller.Add(it);
+
+            studyManager.AddStudentToCourse(vitalii, math);
+            studyManager.AddStudentToCourse(vitalii, it);
+            studyManager.AddStudentToCourse(mariia, it);
+            studyManager.AddStudentToCourse(kateryna, biology);
+
+            Console.WriteLine(studentsStudyManagerControlller.ListItems());
+            Console.WriteLine(teachersStudyManagerControlller.ListItems());
+            Console.WriteLine(coursesStudyManagerControlller.ListItems());
         }
     }
 }

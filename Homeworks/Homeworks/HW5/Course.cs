@@ -54,6 +54,7 @@ namespace Homeworks.HW_5
         public string DescribeYourself()
         {
             var resultString = $"""
+           
             Course Name: {Name}
             Teacher: {Teacher?.Name} {Teacher?.Surname}
             Maximal amount of students: {AmountOfStudents}

@@ -13,7 +13,7 @@ namespace Homeworks.HW_5.Interfaces
             Console.WriteLine("----------------------------------------------------------");
             Console.WriteLine(DescribeYourself());
             Console.WriteLine("----------------------------------------------------------");
-            
+
         }
     }
 }

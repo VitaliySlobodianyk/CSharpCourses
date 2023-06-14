@@ -30,10 +30,11 @@ namespace Homeworks.HW_5.Persons
         public override string DescribeYourself()
         {
             var resultString = $"""
+               
                 Student:
                 {base.DescribeYourself()}
                 """;
-            if (List.Count > 0)
+            if (_courses.Count > 0)
             {
                 resultString += "\nCourses Studied:";
                 foreach (var course in List)
@@ -44,6 +45,5 @@ namespace Homeworks.HW_5.Persons
 
             return resultString;
         }
-
     }
 }
