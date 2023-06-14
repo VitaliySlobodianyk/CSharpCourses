@@ -23,6 +23,9 @@ namespace Homeworks.HW_Last_Additional
             MethodsWithLINQ.DisplayList(extendedCities);
         }
 
+        /// <summary>
+        /// LINQ : Display the list according to the length then by name in ascending order :
+        /// </summary>
         public static void Task2()
         {
             var cities = new List<string>() { "ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS" };
@@ -32,6 +35,9 @@ namespace Homeworks.HW_Last_Additional
             MethodsWithLINQ.DisplayList(sortedCities);
         }
 
+        /// <summary>
+        /// LINQ : Arrange distinct elements in the list in ascending order : 
+        /// </summary>
         public static void Task3()
         {
             var products = new List<string>() { "Butter", "Honey", "Brade", "Biscuit", "Brade", "Butter" };
