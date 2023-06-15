@@ -36,13 +36,18 @@ namespace Homeworks.HW_5.Persons
                 """;
             if (_courses.Count > 0)
             {
-                resultString += "\nCourses Taught:";
-                foreach (var course in _courses)
-                {
-                    resultString += $"\n {course.Name}";
-                }
+                resultString += ListItems();
             }
 
+            return resultString;
+        }
+        public string ListItems()
+        {
+            var resultString = "\nCourses Taught:";
+            _courses.ForEach(course =>
+            {
+                resultString += $"\n {course.Name}";
+            });
             return resultString;
         }
 

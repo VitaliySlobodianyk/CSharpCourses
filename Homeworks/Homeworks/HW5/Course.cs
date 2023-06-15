@@ -62,13 +62,20 @@ namespace Homeworks.HW_5
             """;
             if (_students.Count > 0)
             {
-                resultString += "\nStudents:";
-                foreach (var student in _students)
-                {
-                    resultString += $"\n{student.Name} {student?.Surname}";
-                }
+                resultString += ListItems();
             }
 
+            return resultString;
+        }
+
+
+        public string ListItems()
+        {
+            var resultString = "\nStudents:";
+            _students.ForEach(student =>
+            {
+                resultString += $"\n {student.Name} {student.Surname}";
+            });
             return resultString;
         }
     }
