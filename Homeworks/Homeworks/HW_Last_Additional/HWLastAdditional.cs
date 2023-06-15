@@ -46,10 +46,16 @@ namespace Homeworks.HW_Last_Additional
             MethodsWithLINQ.DisplayList(processedProducts);
         }
 
+        /// <summary>
+        /// LINQ : Find the strings for a specific minimum length :
+        /// </summary>
         public static void Task4()
         {
             var strings = new string[] { "Welcome", "to", "https://classroom.google" };
+            MethodsWithLINQ.DisplayList(strings.ToList());
+            int lengthLimiter = 5;
             var filteredStrings = MethodsWithLINQ.FilterArrayOfStringsWithMinimalLength(strings, 5);
+            Console.WriteLine($"Words that have more than {lengthLimiter} symbols length:");
             MethodsWithLINQ.DisplayList(filteredStrings.ToList());
         }
 

@@ -37,7 +37,7 @@ namespace Homeworks.HW_Last_Additional
         public static string[] FilterArrayOfStringsWithMinimalLength(string[] arr, int minimalLength)
         {
             return arr
-                 .Where(item => item.Length >= minimalLength)
+                 .Where(item => item.Trim().Length >= minimalLength)
                  .ToArray();
         }
 
